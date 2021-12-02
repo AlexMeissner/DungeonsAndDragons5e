@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Linq;
-using RestAPI.Context;
 using RestAPI.Models;
 using RestAPI.Payload;
+using RestAPI.Utility;
 using RestAPI.DatabaseSchema;
 
 namespace RestAPI.Controllers
@@ -12,30 +12,36 @@ namespace RestAPI.Controllers
     [ApiController]
     public class LoginController : ControllerBase
     {
-        private readonly LoginContext _context;
+        private readonly DatabaseContext _context;
 
-        public LoginController(LoginContext context)
+        public LoginController(DatabaseContext context)
         {
             _context = context;
         }
 
         [HttpPost]
-        public ActionResult<Login> PostLogin(LoginPayload login)
+        public ActionResult<Login> PostLogin(LoginPayload payload)
         {
+            Logger.Trace("LoginController::PostLogin");
+
             try
             {
-                var user = _context.UserItems.FirstOrDefault(x => x.Name == login.Name);
+                User user = _context.User.FirstOrDefault(x => x.Name == payload.Name && x.Password == payload.Passsword);
 
                 if (user == default(User))
                 {
                     return Unauthorized(new { code = "INVALID_LOGIN", message = "No user exists with the given name and password." });
                 }
 
-                return CreatedAtAction("Login", new { id = user.ID, name = user.Name }, login);
+                //var t = CreatedAtAction("Login", new { id = user.ID, name = user.Name }, payload);
+                //
+                //return t;
+
+                return Ok();
             }
             catch (Exception exception)
             {
-                Console.WriteLine(exception.ToString());
+                Logger.Exception(exception);
                 return Unauthorized();
             }
         }

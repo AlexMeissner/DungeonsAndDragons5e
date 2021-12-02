@@ -1,0 +1,23 @@
+[Route("api/[controller]")]
+[ApiController]
+public class CampaignController : ControllerBase
+
+// GET: api/Campaign
+[HttpGet]
+public async Task<ActionResult<IEnumerable<Campaign>>> GetCampaignItems()
+
+// GET: api/Campaign/5
+[HttpGet("{id}")]
+public async Task<ActionResult<Campaign>> GetCampaign(long id)
+
+// PUT: api/Campaign/5
+[HttpPut("{id}")]
+public async Task<IActionResult> PutCampaign(long id, Campaign campaign)
+
+// POST: api/Campaign
+[HttpPost]
+public async Task<ActionResult<Campaign>> PostCampaign(Campaign campaign)
+
+// DELETE: api/Campaign/5
+[HttpDelete("{id}")]
+public async Task<IActionResult> DeleteCampaign(long id)

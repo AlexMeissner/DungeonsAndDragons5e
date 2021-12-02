@@ -1,11 +1,11 @@
+using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
-using RestAPI.Context;
+using RestAPI.DatabaseSchema;
 
 namespace RestAPI
 {
@@ -21,11 +21,10 @@ namespace RestAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
 
-            //services.AddDbContext<CampaignContext>(opt => opt.UseInMemoryDatabase("Campaigns"));
-            services.AddDbContext<LoginContext>(opt => opt.UseInMemoryDatabase("Login"));
+            // TODO: This should be a "real" database conntection.
+            services.AddDbContext<DatabaseContext>(opt => opt.UseInMemoryDatabase("Database"));
 
             services.AddSwaggerGen(c =>
             {
