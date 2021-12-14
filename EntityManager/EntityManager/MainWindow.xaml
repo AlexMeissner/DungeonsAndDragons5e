@@ -5,8 +5,45 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EntityManager"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Dungeons and Dragons 5e Entity Manager"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        Width="800"
+        Height="600">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="19*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Row="0" Grid.Column="0" FontWeight="Bold" BorderThickness="0" Background="White" Command="{Binding ViewModel.MonsterCommand}" Content="Monster"/>
+            <Button Grid.Row="0" Grid.Column="1" FontWeight="Bold" BorderThickness="0" Background="White" Command="{Binding ViewModel.SpellCommand}" Content="Zauber"/>
+            <Button Grid.Row="0" Grid.Column="2" FontWeight="Bold" BorderThickness="0" Background="White" Command="{Binding ViewModel.EquipmentCommand}" Content="Ausrüstung"/>
+            <Button Grid.Row="0" Grid.Column="3" FontWeight="Bold" BorderThickness="0" Background="White" Command="{Binding ViewModel.RaceCommand}" Content="Völker"/>
+            <Button Grid.Row="0" Grid.Column="4" FontWeight="Bold" BorderThickness="0" Background="White" Command="{Binding ViewModel.ClassesCommand}" Content="Klassen"/>
+            <Button Grid.Row="0" Grid.Column="5" FontWeight="Bold" BorderThickness="0" Background="White" Command="{Binding ViewModel.BackgroundsCommand}" Content="Hintergründe"/>
+
+            <Grid Grid.Row="1" Grid.Column="0" Background="{Binding ViewModel.MonsterColor}"/>
+            <Grid Grid.Row="1" Grid.Column="1" Background="{Binding ViewModel.SpellColor}"/>
+            <Grid Grid.Row="1" Grid.Column="2" Background="{Binding ViewModel.EquipmentColor}"/>
+            <Grid Grid.Row="1" Grid.Column="3" Background="{Binding ViewModel.RaceColor}"/>
+            <Grid Grid.Row="1" Grid.Column="4" Background="{Binding ViewModel.ClassesColor}"/>
+            <Grid Grid.Row="1" Grid.Column="5" Background="{Binding ViewModel.BackgroundsColor}"/>
+        </Grid>
+
+        <UserControl Grid.Row="1" Content="{Binding ViewModel.Content}"/>
     </Grid>
 </Window>

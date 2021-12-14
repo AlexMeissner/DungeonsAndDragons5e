@@ -1,0 +1,22 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:EntityManager">
+    <DataTemplate DataType="{x:Type local:MonsterViewModel}">
+        <local:MonsterControl/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type local:SpellsViewModel}">
+        <local:SpellsControl/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type local:EquipmentViewModel}">
+        <local:EquipmentControl/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type local:RacesViewModel}">
+        <local:RacesControl/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type local:ClassesViewModel}">
+        <local:ClassesControl/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type local:BackgroundsViewModel}">
+        <local:BackgroundsControl/>
+    </DataTemplate>
+</ResourceDictionary>
