@@ -37,6 +37,12 @@
             </ItemsControl.ItemContainerStyle>
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
+                    <DataTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" Value="0.8"/>
+                        </Trigger>
+                    </DataTemplate.Triggers>
+                    
                     <Border Width="314" BorderThickness="2" BorderBrush="Black" Padding="5">
                         <Border.Background>
                             <ImageBrush ImageSource="{Binding Image}" Stretch="UniformToFill" Opacity="0.5"/>
