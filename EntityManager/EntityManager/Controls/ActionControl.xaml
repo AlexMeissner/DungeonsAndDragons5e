@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EntityManager.Controls"
+             xmlns:converter="clr-namespace:EntityManager.Converter"
              x:Name="ActionCtrl"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
@@ -16,10 +17,13 @@
                         <TextBlock Text="." FontWeight="Bold"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="4 0 1 0">
+                        <StackPanel.Resources>
+                            <converter:NullVisibilityConverter x:Key="NullVisibilityConverter"/>
+                        </StackPanel.Resources>
                         <TextBlock HorizontalAlignment="Right" FontStyle="Italic" Text="{Binding Type}"/>
-                        <TextBlock Text=":"/>
+                        <TextBlock Text=":" FontStyle="Italic" Visibility="{Binding Type, Converter={StaticResource NullVisibilityConverter}}"/>
                     </StackPanel>
-                    <TextBlock HorizontalAlignment="Right" Text="{Binding Description}"/>
+                    <TextBox IsReadOnly="True" Background="Transparent" BorderThickness="0" TextWrapping="Wrap" HorizontalAlignment="Right" Text="{Binding Description}"/>
                 </WrapPanel>
             </DataTemplate>
         </ItemsControl.ItemTemplate>
