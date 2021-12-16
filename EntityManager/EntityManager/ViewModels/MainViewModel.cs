@@ -17,7 +17,7 @@ namespace EntityManager
 
         private SolidColorBrush ButtonColor(SelectedButton button)
         {
-            return Button == button ? Brushes.Black : Brushes.Transparent;
+            return Button == button ? Brushes.Black : Brushes.LightGray;
         }
 
         public SolidColorBrush MonsterColor => ButtonColor(SelectedButton.Monster);

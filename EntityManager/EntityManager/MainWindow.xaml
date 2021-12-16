@@ -44,6 +44,6 @@
             <Grid Grid.Row="1" Grid.Column="5" Background="{Binding ViewModel.BackgroundsColor}"/>
         </Grid>
 
-        <UserControl Grid.Row="1" Content="{Binding ViewModel.Content}"/>
+        <UserControl Grid.Row="1" Content="{Binding ViewModel.Content}" Margin="5"/>
     </Grid>
 </Window>
