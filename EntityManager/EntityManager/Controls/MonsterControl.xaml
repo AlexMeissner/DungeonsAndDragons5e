@@ -112,7 +112,7 @@
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
                                     <TextBlock Grid.Column="0" FontWeight="Bold" Text="Trefferpunkte"/>
-                                    <TextBlock Grid.Column="1" HorizontalAlignment="Right" Text="2 (1W4)"/>
+                                    <controls:HitInfoControl Grid.Column="1" HorizontalAlignment="Right" HitInfo="{Binding HitInfo}"/>
                                 </Grid>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
@@ -145,7 +145,7 @@
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
                                     <TextBlock Grid.Column="0" FontWeight="Bold" Text="Herausforderung"/>
-                                    <TextBlock Grid.Column="1" HorizontalAlignment="Right" Text="1/8 (25EP)"/>
+                                    <controls:DifficultyControl Grid.Column="1" HorizontalAlignment="Right" Difficulty="{Binding Difficulty}"/>
                                 </Grid>
                                 <Border Margin="2" BorderThickness="1" BorderBrush="Black"/>
                                 <TextBlock FontWeight="Bold" Text="Aktionen"/>

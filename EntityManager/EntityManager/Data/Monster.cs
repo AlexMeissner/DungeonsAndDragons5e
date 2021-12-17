@@ -21,15 +21,12 @@ namespace EntityManager.Data
         public string Alignment { get; set; }
 
         public uint ArmorClass { get; set; }
-        public uint HitPoints { get; set; }
-        public string HitDice { get; set; }
+        public MonsterHitInfo HitInfo { get; set; }
         public string[] Movement { get; set; }
 
         public string[] Senses { get; set; }
         public string[] Languages { get; set; }
-        public double ChallangeRating { get; set; }
-        public uint ExperiencePoints { get; set; }
-
+        public MonsterDifficulty Difficulty { get; set; }
         public Action[] Actions { get; set; }
     }
 }

@@ -8,9 +8,9 @@ namespace EntityManager.Controls
     {
         public static readonly DependencyProperty ActionsProperty = DependencyProperty.Register("Actions", typeof(Action[]), typeof(ActionControl), new PropertyMetadata(default));
 
-        public string Actions
+        public Action Actions
         {
-            get { return (string)GetValue(ActionsProperty); }
+            get { return (Action)GetValue(ActionsProperty); }
             set { SetValue(ActionsProperty, value); }
         }
 
