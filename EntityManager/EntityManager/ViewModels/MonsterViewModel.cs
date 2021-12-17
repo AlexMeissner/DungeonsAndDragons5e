@@ -6,7 +6,7 @@ using System.Collections.ObjectModel;
 using EntityManager.Windows;
 using EntityManager.Data;
 
-namespace EntityManager
+namespace EntityManager.ViewModels
 {
     public class MonsterViewModel : BaseViewModel
     {

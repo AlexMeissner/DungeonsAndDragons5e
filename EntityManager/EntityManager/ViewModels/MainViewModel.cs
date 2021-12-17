@@ -1,7 +1,7 @@
 ﻿using System.Windows.Input;
 using System.Windows.Media;
 
-namespace EntityManager
+namespace EntityManager.ViewModels
 {
     public class MainViewModel : BaseViewModel
     {

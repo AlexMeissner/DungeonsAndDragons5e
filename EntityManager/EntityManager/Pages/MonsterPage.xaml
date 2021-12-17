@@ -1,0 +1,160 @@
+﻿<UserControl x:Class="EntityManager.Pages.MonsterPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EntityManager.Pages"
+             xmlns:controls="clr-namespace:EntityManager.Controls"
+             DataContext="{Binding RelativeSource={RelativeSource Self}}"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="130"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Grid.Column="0" Background="Transparent" FontWeight="Bold" Content="Monster hinzufügen" Command="{Binding ViewModel.CreateMonsterCommand}"/>
+            <TextBox Grid.Column="1" Margin="2 0 2 0" VerticalContentAlignment="Center"/>
+        </Grid>
+
+        <ScrollViewer Grid.Row="1" Margin="0 0 4 0" VerticalScrollBarVisibility="Auto">
+            <ItemsControl ItemsSource="{Binding ViewModel.Monsters}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemContainerStyle>
+                    <Style>
+                        <Setter Property="FrameworkElement.Margin" Value="2"/>
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <DataTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.8"/>
+                            </Trigger>
+                        </DataTemplate.Triggers>
+
+                        <Border Width="310" BorderThickness="2" BorderBrush="Black" Padding="5">
+                            <Border.Background>
+                                <ImageBrush ImageSource="{Binding Image}" Stretch="UniformToFill" Opacity="0.5"/>
+                            </Border.Background>
+
+                            <StackPanel Orientation="Vertical">
+                                <TextBlock FontWeight="Bold" FontSize="15" Text="{Binding Name}"/>
+                                <Border Margin="2" BorderThickness="1" BorderBrush="Black"/>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Grid.Row="0" Grid.Column="0" FontWeight="Bold" HorizontalAlignment="Center" Text="STR"/>
+                                    <TextBlock Grid.Row="0" Grid.Column="1" FontWeight="Bold" HorizontalAlignment="Center" Text="GES"/>
+                                    <TextBlock Grid.Row="0" Grid.Column="2" FontWeight="Bold" HorizontalAlignment="Center" Text="KON"/>
+                                    <TextBlock Grid.Row="0" Grid.Column="3" FontWeight="Bold" HorizontalAlignment="Center" Text="INT"/>
+                                    <TextBlock Grid.Row="0" Grid.Column="4" FontWeight="Bold" HorizontalAlignment="Center" Text="WEI"/>
+                                    <TextBlock Grid.Row="0" Grid.Column="5" FontWeight="Bold" HorizontalAlignment="Center" Text="CHA"/>
+
+                                    <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" Text="{Binding Strength}"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Text="{Binding Dexterity}"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" Text="{Binding Constitution}"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" Text="{Binding Intelligence}"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center" Text="{Binding Wisdom}"/>
+                                    <TextBlock Grid.Row="1" Grid.Column="5" HorizontalAlignment="Center" Text="{Binding Charisma}"/>
+                                </Grid>
+                                <Border Margin="2" BorderThickness="1" BorderBrush="Black"/>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" FontWeight="Bold" Text="Größe"/>
+                                    <TextBlock Grid.Column="1" HorizontalAlignment="Right" Text="{Binding Size}"/>
+                                </Grid>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" FontWeight="Bold" Text="Gesinnung"/>
+                                    <TextBlock Grid.Column="1" HorizontalAlignment="Right" Text="{Binding Alignment}"/>
+                                </Grid>
+                                <Border Margin="2" BorderThickness="1" BorderBrush="Black"/>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" FontWeight="Bold" Text="Rüstungsklasse"/>
+                                    <TextBlock Grid.Column="1" HorizontalAlignment="Right" Text="{Binding ArmorClass}"/>
+                                </Grid>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" FontWeight="Bold" Text="Trefferpunkte"/>
+                                    <controls:HitInfoControl Grid.Column="1" HorizontalAlignment="Right" HitInfo="{Binding HitInfo}"/>
+                                </Grid>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" FontWeight="Bold" Text="Bewegungsrate"/>
+                                    <controls:StringArrayControl Grid.Column="1" HorizontalAlignment="Right" Data="{Binding Movement}"/>
+                                </Grid>
+                                <Border Margin="2" BorderThickness="1" BorderBrush="Black"/>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" FontWeight="Bold" Text="Sinne"/>
+                                    <controls:StringArrayControl Grid.Column="1" HorizontalAlignment="Right" Data="{Binding Senses}"/>
+                                </Grid>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" FontWeight="Bold" Text="Sprachen"/>
+                                    <controls:StringArrayControl Grid.Column="1" HorizontalAlignment="Right" Data="{Binding Languages}"/>
+                                </Grid>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Grid.Column="0" FontWeight="Bold" Text="Herausforderung"/>
+                                    <controls:DifficultyControl Grid.Column="1" HorizontalAlignment="Right" Difficulty="{Binding Difficulty}"/>
+                                </Grid>
+                                <Border Margin="2" BorderThickness="1" BorderBrush="Black"/>
+                                <TextBlock FontWeight="Bold" Text="Aktionen"/>
+                                <controls:ActionControl Actions="{Binding Actions}"/>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
