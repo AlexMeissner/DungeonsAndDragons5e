@@ -26,8 +26,8 @@ namespace RestAPI
                 {
                     builder.UseStartup<ClientHostStartup>();
                     builder.UseUrls("http://localhost:80/");
-                    builder.UseContentRoot(@"W:\Projects\Coding\DungeonsAndDragons5e\dnd-client");
-                    builder.UseWebRoot("src");
+                    builder.UseContentRoot(@"W:\Projects\Coding\DungeonsAndDragons5e\dnd-client\dist");
+                    builder.UseWebRoot("dnd-client");
                 });
     }
 }
