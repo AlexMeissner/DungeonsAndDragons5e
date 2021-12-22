@@ -16,7 +16,7 @@ namespace RestAPI.Controllers
         [HttpGet]
         public ActionResult<List<string>> GetPlaylists()
         {
-            Logger.Trace("PlaylistController::GetPlaylists");
+            Logger.Trace();
 
             try
             {

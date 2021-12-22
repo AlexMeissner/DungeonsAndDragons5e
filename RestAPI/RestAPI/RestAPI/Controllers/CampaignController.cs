@@ -24,7 +24,7 @@ namespace RestAPI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<CampaignModel>> GetCampaign(long id)
         {
-            Logger.Trace("CampaignController::GetCampaign");
+            Logger.Trace();
 
             var campaign = await _context.Campaign.FindAsync(id);
 
@@ -39,7 +39,7 @@ namespace RestAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<CampaignModel>> PostCampaign(CampaignPayload payload)
         {
-            Logger.Trace("CampaignController::PostCampaign");
+            Logger.Trace();
 
             try
             {
@@ -64,7 +64,7 @@ namespace RestAPI.Controllers
         [HttpPatch("{id}")]
         public async Task<IActionResult> PatchCampaign(long id, CampaignPayload payload)
         {
-            Logger.Trace("CampaignController::PatchCampaign");
+            Logger.Trace();
 
             try
             {
@@ -95,7 +95,7 @@ namespace RestAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<uint>> DeleteCampaign(long id)
         {
-            Logger.Trace("CampaignController::Campaign");
+            Logger.Trace();
 
             var campaign = await _context.Campaign.FindAsync(id);
 

@@ -26,7 +26,7 @@ namespace RestAPI.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<UserCampaignMappingModel>> GetUserCampaignMappings([FromQuery] UserCampaignMappingQueryParameter queryParameter)
         {
-            Logger.Trace("UserCampaignMappingController::GetUserCampaignMappings");
+            Logger.Trace();
 
             try
             {
@@ -48,7 +48,7 @@ namespace RestAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<UserCampaignMappingModel>> PostUserCampaignMapping(UserCampaignMappingPayload payload)
         {
-            Logger.Trace("UserCampaignMappingController::PostUserCampaignMapping");
+            Logger.Trace();
 
             try
             {
@@ -75,7 +75,7 @@ namespace RestAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<uint>> DeleteUserCampaignMapping(long id)
         {
-            Logger.Trace("UserCampaignMappingController::DeleteUserCampaignMapping");
+            Logger.Trace();
 
             var mapping = await _context.UserCampaignMapping.FindAsync(id);
 

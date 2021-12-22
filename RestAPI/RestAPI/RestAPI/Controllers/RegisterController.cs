@@ -22,7 +22,7 @@ namespace RestAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> PostRegister(RegisterPayload payload)
         {
-            Logger.Trace("RegisterController::PostCreateUser");
+            Logger.Trace();
 
             try
             {

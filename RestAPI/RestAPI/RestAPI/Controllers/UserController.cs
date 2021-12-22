@@ -23,7 +23,7 @@ namespace RestAPI.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<UserModel>> GetUsers()
         {
-            Logger.Trace("UserController::GetUsers");
+            Logger.Trace();
 
             List<UserModel> users = new();
 
@@ -38,7 +38,7 @@ namespace RestAPI.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<UserModel>> GetUser(long id)
         {
-            Logger.Trace("UserController::GetUser");
+            Logger.Trace();
 
             var user = await _context.User.FindAsync(id);
 
@@ -53,7 +53,7 @@ namespace RestAPI.Controllers
         [HttpPatch("{id}")]
         public async Task<IActionResult> PatchUser(long id, UserPayload payload)
         {
-            Logger.Trace("UserController::PatchUser");
+            Logger.Trace();
 
             var user = await _context.User.FindAsync(id);
 
@@ -76,7 +76,7 @@ namespace RestAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<uint>> DeleteUser(long id)
         {
-            Logger.Trace("UserController::DeleteUser");
+            Logger.Trace();
 
             var user = await _context.User.FindAsync(id);
 

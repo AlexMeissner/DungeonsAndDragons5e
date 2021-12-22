@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 
 namespace RestAPI.Utility
 {
@@ -49,9 +50,14 @@ namespace RestAPI.Utility
             Level = level;
         }
 
-        public static void Trace(string message)
+        public static void Trace()
         {
-            Log(message, LogLevel.Trace);
+            string[] traces = new StackTrace().ToString().Split('\n');
+
+            if (traces.Length >= 2)
+            {
+                Log(traces[1].Remove(0, 6), LogLevel.Trace);
+            }
         }
 
         public static void Info(string message)

@@ -23,7 +23,7 @@ namespace RestAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<UserModel>> PostLogin(LoginPayload payload)
         {
-            Logger.Trace("LoginController::PostLogin");
+            Logger.Trace();
 
             try
             {

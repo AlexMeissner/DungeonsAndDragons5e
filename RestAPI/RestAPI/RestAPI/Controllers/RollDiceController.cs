@@ -11,7 +11,7 @@ namespace RestAPI.Controllers
         [HttpGet]
         public ActionResult<RollDice> GetRollDice()
         {
-            Logger.Trace("RollDiceController::GetRollDice");
+            Logger.Trace();
             return DiceRoller.RollDice(Dice.D10);
         }
     }
