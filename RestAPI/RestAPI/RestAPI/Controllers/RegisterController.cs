@@ -32,7 +32,7 @@ namespace RestAPI.Controllers
                     Password = payload.Passsword
                 };
 
-                _context.User.Add(user);
+                await _context.User.AddAsync(user);
                 await _context.SaveChangesAsync();
 
                 return Ok(new UserModel() { ID = user.ID, Name = user.Name });
