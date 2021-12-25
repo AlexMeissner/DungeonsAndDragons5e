@@ -1,16 +1,17 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System.Collections.Generic;
 using EntityManager.Data;
 
 namespace EntityManager.Controls
 {
     public partial class ActionControl : UserControl
     {
-        public static readonly DependencyProperty ActionsProperty = DependencyProperty.Register("Actions", typeof(Action[]), typeof(ActionControl), new PropertyMetadata(default));
+        public static readonly DependencyProperty ActionsProperty = DependencyProperty.Register("Actions", typeof(List<Action>), typeof(ActionControl), new PropertyMetadata(default));
 
-        public Action Actions
+        public List<Action> Actions
         {
-            get { return (Action)GetValue(ActionsProperty); }
+            get { return (List<Action>)GetValue(ActionsProperty); }
             set { SetValue(ActionsProperty, value); }
         }
 

@@ -1,4 +1,5 @@
-﻿using System.Windows.Media.Imaging;
+﻿using System.Collections.Generic;
+using System.Windows.Media.Imaging;
 
 namespace EntityManager.Data
 {
@@ -22,11 +23,11 @@ namespace EntityManager.Data
 
         public uint ArmorClass { get; set; }
         public MonsterHitInfo HitInfo { get; set; }
-        public string[] Movement { get; set; }
+        public List<string> Movement { get; set; }
 
-        public string[] Senses { get; set; }
-        public string[] Languages { get; set; }
+        public List<string> Senses { get; set; }
+        public List<string> Languages { get; set; }
         public MonsterDifficulty Difficulty { get; set; }
-        public Action[] Actions { get; set; }
+        public List<Action> Actions { get; set; }
     }
 }

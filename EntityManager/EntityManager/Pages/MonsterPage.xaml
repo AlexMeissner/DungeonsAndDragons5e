@@ -120,7 +120,7 @@
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
                                     <TextBlock Grid.Column="0" FontWeight="Bold" Text="Bewegungsrate"/>
-                                    <controls:StringArrayControl Grid.Column="1" HorizontalAlignment="Right" Data="{Binding Movement}"/>
+                                    <controls:StringListControl Grid.Column="1" HorizontalAlignment="Right" Data="{Binding Movement}"/>
                                 </Grid>
                                 <Border Margin="2" BorderThickness="1" BorderBrush="Black"/>
                                 <Grid>
@@ -129,7 +129,7 @@
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
                                     <TextBlock Grid.Column="0" FontWeight="Bold" Text="Sinne"/>
-                                    <controls:StringArrayControl Grid.Column="1" HorizontalAlignment="Right" Data="{Binding Senses}"/>
+                                    <controls:StringListControl Grid.Column="1" HorizontalAlignment="Right" Data="{Binding Senses}"/>
                                 </Grid>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
@@ -137,7 +137,7 @@
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
                                     <TextBlock Grid.Column="0" FontWeight="Bold" Text="Sprachen"/>
-                                    <controls:StringArrayControl Grid.Column="1" HorizontalAlignment="Right" Data="{Binding Languages}"/>
+                                    <controls:StringListControl Grid.Column="1" HorizontalAlignment="Right" Data="{Binding Languages}"/>
                                 </Grid>
                                 <Grid>
                                     <Grid.ColumnDefinitions>
