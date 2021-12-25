@@ -4,9 +4,151 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EntityManager.Windows"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
         mc:Ignorable="d"
-        Title="MonsterCreationWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        Title="Monster Creation Window"
+        Width="480"
+        Height="460">
+    <StackPanel>
+        <Grid Margin="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="Monster GUID" FontWeight="Bold"/>
+            <TextBox Grid.Column="1" IsReadOnly="True" Text="{Binding Monster.GUID}"/>
+        </Grid>
+        <Grid Margin="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="Monster Name" FontWeight="Bold"/>
+            <TextBox Grid.Column="1" Text="{Binding Monster.Name}"/>
+        </Grid>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0" Grid.Column="0" Margin="1 0 1 0" FontWeight="Bold" HorizontalAlignment="Center" Text="STR"/>
+            <TextBlock Grid.Row="0" Grid.Column="1" Margin="1 0 1 0" FontWeight="Bold" HorizontalAlignment="Center" Text="GES"/>
+            <TextBlock Grid.Row="0" Grid.Column="2" Margin="1 0 1 0" FontWeight="Bold" HorizontalAlignment="Center" Text="KON"/>
+            <TextBlock Grid.Row="0" Grid.Column="3" Margin="1 0 1 0" FontWeight="Bold" HorizontalAlignment="Center" Text="INT"/>
+            <TextBlock Grid.Row="0" Grid.Column="4" Margin="1 0 1 0" FontWeight="Bold" HorizontalAlignment="Center" Text="WEI"/>
+            <TextBlock Grid.Row="0" Grid.Column="5" Margin="1 0 1 0" FontWeight="Bold" HorizontalAlignment="Center" Text="CHA"/>
+            <TextBox Grid.Row="1" Grid.Column="0" Margin="1 0 1 0" HorizontalContentAlignment="Center" PreviewTextInput="NumberValidation" Text="{Binding Monster.Strength}"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Margin="1 0 1 0" HorizontalContentAlignment="Center" PreviewTextInput="NumberValidation" Text="{Binding Monster.Dexterity}"/>
+            <TextBox Grid.Row="1" Grid.Column="2" Margin="1 0 1 0" HorizontalContentAlignment="Center" PreviewTextInput="NumberValidation" Text="{Binding Monster.Constitution}"/>
+            <TextBox Grid.Row="1" Grid.Column="3" Margin="1 0 1 0" HorizontalContentAlignment="Center" PreviewTextInput="NumberValidation" Text="{Binding Monster.Intelligence}"/>
+            <TextBox Grid.Row="1" Grid.Column="4" Margin="1 0 1 0" HorizontalContentAlignment="Center" PreviewTextInput="NumberValidation" Text="{Binding Monster.Wisdom}"/>
+            <TextBox Grid.Row="1" Grid.Column="5" Margin="1 0 1 0" HorizontalContentAlignment="Center" PreviewTextInput="NumberValidation" Text="{Binding Monster.Charisma}"/>
+        </Grid>
+
+        <Grid Margin="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="Größe" FontWeight="Bold"/>
+            <TextBox Grid.Column="1" Text="{Binding Monster.Size}"/>
+        </Grid>
+        <Grid Margin="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="Gesinnung" FontWeight="Bold"/>
+            <TextBox Grid.Column="1" Text="{Binding Monster.Alignment}"/>
+        </Grid>
+        <Grid Margin="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="Rüstungsklasse" FontWeight="Bold"/>
+            <TextBox Grid.Column="1" PreviewTextInput="NumberValidation" Text="{Binding Monster.ArmorClass}"/>
+        </Grid>
+        <Grid Margin="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="Trefferpunkte" FontWeight="Bold"/>
+            <TextBox Grid.Column="1" PreviewTextInput="NumberValidation" Text="{Binding Monster.HitInfo.HitPoints}"/>
+        </Grid>
+        <Grid Margin="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="Trefferwürfel" FontWeight="Bold"/>
+            <TextBox Grid.Column="1" Text="{Binding Monster.HitInfo.HitDice}"/>
+        </Grid>
+        <Grid Margin="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="Bewegungsrate" FontWeight="Bold"/>
+            <TextBox Grid.Column="1" Text="{Binding Monster.Movement}"/>
+        </Grid>
+        <Grid Margin="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="Sinne" FontWeight="Bold"/>
+            <TextBox Grid.Column="1" Text="{Binding Monster.Senses}"/>
+        </Grid>
+        <Grid Margin="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="Sprachen" FontWeight="Bold"/>
+            <TextBox Grid.Column="1" Text="{Binding Monster.Languages}"/>
+        </Grid>
+        <Grid Margin="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="Herausforderung" FontWeight="Bold"/>
+            <TextBox Grid.Column="1" PreviewTextInput="NumberValidation" Text="{Binding Monster.Difficulty.ChallengeRating}"/>
+        </Grid>
+        <Grid Margin="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="Erfahrungspunkte" FontWeight="Bold"/>
+            <TextBox Grid.Column="1" Text="{Binding Monster.Difficulty.ExperiencePoints}"/>
+        </Grid>
+        <Grid Margin="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Text="Aktionen" FontWeight="Bold"/>
+            <TextBox Grid.Column="1" Text="{Binding Monster.Actions}"/>
+        </Grid>
+        <TextBlock Grid.Column="0" Margin="1" Text="Bild" FontWeight="Bold"/>
+        <Border Margin="1">
+            <Border.Background>
+                <ImageBrush ImageSource="{Binding Monster.Image}" Stretch="UniformToFill"/>
+            </Border.Background>
+            <Button Height="100" Background="Transparent"/>
+        </Border>
+        <Image/>
+    </StackPanel>
 </Window>

@@ -44,7 +44,7 @@
                             </Trigger>
                         </DataTemplate.Triggers>
 
-                        <Border Width="310" BorderThickness="2" BorderBrush="Black" Padding="5">
+                        <Border Width="310" BorderThickness="2" BorderBrush="Black" Padding="5" MouseDown="Border_MouseDown">
                             <Border.Background>
                                 <ImageBrush ImageSource="{Binding Image}" Stretch="UniformToFill" Opacity="0.5"/>
                             </Border.Background>
