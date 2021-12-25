@@ -36,7 +36,7 @@ namespace EntityManager.ViewModels
         public ICommand ClassesCommand { get; set; }
         public ICommand BackgroundsCommand { get; set; }
 
-        public BaseViewModel Content { get; set; } = new MonsterViewModel();
+        public BaseViewModel Content { get; set; } = new MonstersViewModel();
 
         public MainViewModel()
         {
@@ -51,7 +51,7 @@ namespace EntityManager.ViewModels
         public void OpenMonsterPanel()
         {
             Button = SelectedButton.Monster;
-            Content = new MonsterViewModel();
+            Content = new MonstersViewModel();
         }
 
         public void OpenSpellPanel()

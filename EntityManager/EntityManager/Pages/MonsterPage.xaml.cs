@@ -1,13 +1,12 @@
 ﻿using System.Windows.Controls;
 using EntityManager.Windows;
 using EntityManager.ViewModels;
-using EntityManager.Data;
 
 namespace EntityManager.Pages
 {
     public partial class MonsterPage : UserControl
     {
-        public MonsterViewModel ViewModel { get; set; } = new MonsterViewModel();
+        public MonstersViewModel ViewModel { get; set; } = new MonstersViewModel();
 
         public MonsterPage()
         {

@@ -3,7 +3,7 @@
                     xmlns:local="clr-namespace:EntityManager"
                     xmlns:pages="clr-namespace:EntityManager.Pages"
                     xmlns:viewModels="clr-namespace:EntityManager.ViewModels">
-    <DataTemplate DataType="{x:Type viewModels:MonsterViewModel}">
+    <DataTemplate DataType="{x:Type viewModels:MonstersViewModel}">
         <pages:MonsterPage/>
     </DataTemplate>
     <DataTemplate DataType="{x:Type viewModels:SpellsViewModel}">

@@ -5,9 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EntityManager.Pages"
              xmlns:controls="clr-namespace:EntityManager.Controls"
+             xmlns:converter="clr-namespace:EntityManager.Converter"
              DataContext="{Binding RelativeSource={RelativeSource Self}}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <converter:StringToImageConverter x:Key="StringToImageConverter"/>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -46,7 +50,7 @@
 
                         <Border Width="310" BorderThickness="2" BorderBrush="Black" Padding="5" MouseDown="Border_MouseDown">
                             <Border.Background>
-                                <ImageBrush ImageSource="{Binding Image}" Stretch="UniformToFill" Opacity="0.5"/>
+                                <ImageBrush ImageSource="{Binding Image, Converter={StaticResource StringToImageConverter}}" Stretch="UniformToFill" Opacity="0.5"/>
                             </Border.Background>
 
                             <StackPanel Orientation="Vertical">

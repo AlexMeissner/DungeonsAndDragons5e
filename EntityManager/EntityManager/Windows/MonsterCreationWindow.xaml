@@ -5,11 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EntityManager.Windows"
         xmlns:controls="clr-namespace:EntityManager.Controls"
+        xmlns:converter="clr-namespace:EntityManager.Converter"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         mc:Ignorable="d"
         Title="Monster Creation Window"
         Width="480"
         Height="520">
+    <Window.Resources>
+        <converter:StringToImageConverter x:Key="StringToImageConverter"/>
+    </Window.Resources>
     <ScrollViewer VerticalScrollBarVisibility="Auto">
         <StackPanel>
             <Grid Margin="1">
@@ -147,11 +151,10 @@
             <TextBlock Grid.Column="0" Margin="1" Text="Bild" FontWeight="Bold"/>
             <Border Margin="1">
                 <Border.Background>
-                    <ImageBrush ImageSource="{Binding Monster.Image}" Stretch="UniformToFill"/>
+                    <ImageBrush ImageSource="{Binding Monster.Image, Converter={StaticResource StringToImageConverter}}" Stretch="UniformToFill"/>
                 </Border.Background>
                 <Button Height="100" Background="Transparent"/>
             </Border>
-            <Image/>
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>

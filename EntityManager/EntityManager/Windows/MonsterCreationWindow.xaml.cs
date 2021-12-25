@@ -2,13 +2,13 @@
 using System.Windows;
 using System.Windows.Input;
 using System.Text.RegularExpressions;
-using EntityManager.Data;
+using EntityManager.ViewModels;
 
 namespace EntityManager.Windows
 {
     public partial class MonsterCreationWindow : Window
     {
-        public Monster Monster { get; set; }
+        public Monster? Monster { get; set; }
 
         public MonsterCreationWindow()
         {
@@ -22,7 +22,7 @@ namespace EntityManager.Windows
 
         public MonsterCreationWindow(Monster monster)
         {
-            Monster = monster;
+            Monster = DeepCopy.Create(monster);
             InitializeComponent();
         }
 

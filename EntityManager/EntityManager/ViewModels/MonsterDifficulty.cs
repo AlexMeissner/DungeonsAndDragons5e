@@ -1,6 +1,6 @@
-﻿namespace EntityManager.Data
+﻿namespace EntityManager.ViewModels
 {
-    public struct MonsterDifficulty
+    public class MonsterDifficulty : BaseViewModel
     {
         public double ChallengeRating { get; set; }
         public uint ExperiencePoints { get; set; }

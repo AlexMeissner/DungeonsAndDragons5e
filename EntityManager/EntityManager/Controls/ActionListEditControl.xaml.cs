@@ -1,16 +1,17 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Collections.Generic;
+using EntityManager.ViewModels;
 
 namespace EntityManager.Controls
 {
     public partial class ActionListEditControl : UserControl
     {
-        public static readonly DependencyProperty ActionsProperty = DependencyProperty.Register("Actions", typeof(List<Data.Action>), typeof(ActionListEditControl), new PropertyMetadata(default));
+        public static readonly DependencyProperty ActionsProperty = DependencyProperty.Register("Actions", typeof(List<MonsterAction>), typeof(ActionListEditControl), new PropertyMetadata(default));
 
-        public List<Data.Action> Actions
+        public List<MonsterAction> Actions
         {
-            get { return (List<Data.Action>)GetValue(ActionsProperty); }
+            get { return (List<MonsterAction>)GetValue(ActionsProperty); }
             set { SetValue(ActionsProperty, value); }
         }
         public ActionListEditControl()
@@ -20,7 +21,7 @@ namespace EntityManager.Controls
 
         private void OnAddEntry(object sender, RoutedEventArgs e)
         {
-            Actions.Add(new Data.Action() { Name = string.Empty, Type = string.Empty, Description = string.Empty });
+            Actions.Add(new MonsterAction() { Name = string.Empty, Type = string.Empty, Description = string.Empty });
         }
     }
 }
