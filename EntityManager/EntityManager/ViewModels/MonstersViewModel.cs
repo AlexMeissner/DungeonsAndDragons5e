@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Windows.Media.Imaging;
 
-using System.Windows.Input;
 using System.Collections.ObjectModel;
-using EntityManager.Windows;
 using System.Collections.Generic;
 
 namespace EntityManager.ViewModels
@@ -11,12 +8,9 @@ namespace EntityManager.ViewModels
     public class MonstersViewModel : BaseViewModel
     {
         public ObservableCollection<Monster> Monsters { get; set; }
-        public ICommand CreateMonsterCommand { get; set; }
 
         public MonstersViewModel()
         {
-            CreateMonsterCommand = new RelayCommand(OpenMonsterCreationWindow);
-
             Monsters = new ObservableCollection<Monster>();
 
             for (int i = 0; i < 27; ++i)
@@ -46,12 +40,6 @@ namespace EntityManager.ViewModels
                 };
                 Monsters.Add(monster);
             }
-        }
-
-        public static void OpenMonsterCreationWindow()
-        {
-            MonsterCreationWindow window = new();
-            window.Show();
         }
     }
 }

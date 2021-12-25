@@ -32,5 +32,17 @@ namespace EntityManager.Windows
         {
             e.Handled = NumberRegex.IsMatch(e.Text);
         }
+
+        private void OnSave(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
+            Close();
+        }
+
+        private void OnClose(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
+            Close();
+        }       
     }
 }

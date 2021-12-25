@@ -1,5 +1,7 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows.Input;
+using System.Windows.Controls;
 using EntityManager.Windows;
+using EntityManager.Controls;
 using EntityManager.ViewModels;
 
 namespace EntityManager.Pages
@@ -13,13 +15,28 @@ namespace EntityManager.Pages
             InitializeComponent();
         }
 
-        private void Border_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void OnEditMonster(object sender, MouseButtonEventArgs e)
         {
-            if (sender is Border a)
+            if (sender is MonsterCardControl control)
             {
-                Monster b = (Monster)a.DataContext;
-                MonsterCreationWindow window = new(b);
-                window.Show();
+                Monster monster = (Monster)control.DataContext;
+                MonsterCreationWindow window = new(monster);
+
+                if (window.ShowDialog() == true && window.Monster != null)
+                {
+                    int index = ViewModel.Monsters.IndexOf(monster);
+                    ViewModel.Monsters[index] = window.Monster;
+                }
+            }
+        }
+
+        private void OnAddMonster(object sender, System.Windows.RoutedEventArgs e)
+        {
+            MonsterCreationWindow window = new();
+
+            if (window.ShowDialog() == true && window.Monster != null)
+            {
+                ViewModel.Monsters.Add(window.Monster);
             }
         }
     }

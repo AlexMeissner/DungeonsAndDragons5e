@@ -9,9 +9,6 @@
              DataContext="{Binding RelativeSource={RelativeSource Self}}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <UserControl.Resources>
-        <converter:StringToImageConverter x:Key="StringToImageConverter"/>
-    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -24,7 +21,7 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Button Grid.Column="0" Background="Transparent" FontWeight="Bold" Content="Monster hinzufügen" Command="{Binding ViewModel.CreateMonsterCommand}"/>
+            <Button Grid.Column="0" Background="Transparent" FontWeight="Bold" Content="Monster hinzufügen" Click="OnAddMonster"/>
             <TextBox Grid.Column="1" Margin="2 0 2 0" VerticalContentAlignment="Center"/>
         </Grid>
 
@@ -48,114 +45,7 @@
                             </Trigger>
                         </DataTemplate.Triggers>
 
-                        <Border Width="310" BorderThickness="2" BorderBrush="Black" Padding="5" MouseDown="Border_MouseDown">
-                            <Border.Background>
-                                <ImageBrush ImageSource="{Binding Image, Converter={StaticResource StringToImageConverter}}" Stretch="UniformToFill" Opacity="0.5"/>
-                            </Border.Background>
-
-                            <StackPanel Orientation="Vertical">
-                                <TextBlock FontWeight="Bold" FontSize="15" Text="{Binding Name}"/>
-                                <Border Margin="2" BorderThickness="1" BorderBrush="Black"/>
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
-                                    </Grid.ColumnDefinitions>
-
-                                    <TextBlock Grid.Row="0" Grid.Column="0" FontWeight="Bold" HorizontalAlignment="Center" Text="STR"/>
-                                    <TextBlock Grid.Row="0" Grid.Column="1" FontWeight="Bold" HorizontalAlignment="Center" Text="GES"/>
-                                    <TextBlock Grid.Row="0" Grid.Column="2" FontWeight="Bold" HorizontalAlignment="Center" Text="KON"/>
-                                    <TextBlock Grid.Row="0" Grid.Column="3" FontWeight="Bold" HorizontalAlignment="Center" Text="INT"/>
-                                    <TextBlock Grid.Row="0" Grid.Column="4" FontWeight="Bold" HorizontalAlignment="Center" Text="WEI"/>
-                                    <TextBlock Grid.Row="0" Grid.Column="5" FontWeight="Bold" HorizontalAlignment="Center" Text="CHA"/>
-
-                                    <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" Text="{Binding Strength}"/>
-                                    <TextBlock Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" Text="{Binding Dexterity}"/>
-                                    <TextBlock Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center" Text="{Binding Constitution}"/>
-                                    <TextBlock Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" Text="{Binding Intelligence}"/>
-                                    <TextBlock Grid.Row="1" Grid.Column="4" HorizontalAlignment="Center" Text="{Binding Wisdom}"/>
-                                    <TextBlock Grid.Row="1" Grid.Column="5" HorizontalAlignment="Center" Text="{Binding Charisma}"/>
-                                </Grid>
-                                <Border Margin="2" BorderThickness="1" BorderBrush="Black"/>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock Grid.Column="0" FontWeight="Bold" Text="Größe"/>
-                                    <TextBlock Grid.Column="1" HorizontalAlignment="Right" Text="{Binding Size}"/>
-                                </Grid>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock Grid.Column="0" FontWeight="Bold" Text="Gesinnung"/>
-                                    <TextBlock Grid.Column="1" HorizontalAlignment="Right" Text="{Binding Alignment}"/>
-                                </Grid>
-                                <Border Margin="2" BorderThickness="1" BorderBrush="Black"/>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock Grid.Column="0" FontWeight="Bold" Text="Rüstungsklasse"/>
-                                    <TextBlock Grid.Column="1" HorizontalAlignment="Right" Text="{Binding ArmorClass}"/>
-                                </Grid>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock Grid.Column="0" FontWeight="Bold" Text="Trefferpunkte"/>
-                                    <controls:HitInfoControl Grid.Column="1" HorizontalAlignment="Right" HitInfo="{Binding HitInfo}"/>
-                                </Grid>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock Grid.Column="0" FontWeight="Bold" Text="Bewegungsrate"/>
-                                    <controls:StringListControl Grid.Column="1" HorizontalAlignment="Right" Data="{Binding Movement}"/>
-                                </Grid>
-                                <Border Margin="2" BorderThickness="1" BorderBrush="Black"/>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock Grid.Column="0" FontWeight="Bold" Text="Sinne"/>
-                                    <controls:StringListControl Grid.Column="1" HorizontalAlignment="Right" Data="{Binding Senses}"/>
-                                </Grid>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock Grid.Column="0" FontWeight="Bold" Text="Sprachen"/>
-                                    <controls:StringListControl Grid.Column="1" HorizontalAlignment="Right" Data="{Binding Languages}"/>
-                                </Grid>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition/>
-                                        <ColumnDefinition/>
-                                    </Grid.ColumnDefinitions>
-                                    <TextBlock Grid.Column="0" FontWeight="Bold" Text="Herausforderung"/>
-                                    <controls:DifficultyControl Grid.Column="1" HorizontalAlignment="Right" Difficulty="{Binding Difficulty}"/>
-                                </Grid>
-                                <Border Margin="2" BorderThickness="1" BorderBrush="Black"/>
-                                <TextBlock FontWeight="Bold" Text="Aktionen"/>
-                                <controls:ActionControl Actions="{Binding Actions}"/>
-                            </StackPanel>
-                        </Border>
+                        <controls:MonsterCardControl Monster="{Binding .}" Width="310" Padding="5" MouseDown="OnEditMonster"/>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
