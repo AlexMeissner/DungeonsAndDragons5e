@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections.ObjectModel;
 
 namespace EntityManager.ViewModels
 {
@@ -22,11 +22,11 @@ namespace EntityManager.ViewModels
 
         public uint ArmorClass { get; set; }
         public MonsterHitInfo HitInfo { get; set; } = new();
-        public List<string> Movement { get; set; } = new();
+        public ObservableCollection<string> Movement { get; set; } = new();
 
-        public List<string> Senses { get; set; } = new();
-        public List<string> Languages { get; set; } = new();
+        public ObservableCollection<string> Senses { get; set; } = new();
+        public ObservableCollection<string> Languages { get; set; } = new();
         public MonsterDifficulty Difficulty { get; set; } = new();
-        public List<MonsterAction> Actions { get; set; } = new();
+        public ObservableCollection<MonsterAction> Actions { get; set; } = new();
     }
 }

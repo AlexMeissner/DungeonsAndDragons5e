@@ -1,17 +1,17 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using EntityManager.ViewModels;
 
 namespace EntityManager.Controls
 {
     public partial class ActionControl : UserControl
     {
-        public static readonly DependencyProperty ActionsProperty = DependencyProperty.Register("Actions", typeof(List<MonsterAction>), typeof(ActionControl), new PropertyMetadata(default));
+        public static readonly DependencyProperty ActionsProperty = DependencyProperty.Register("Actions", typeof(ObservableCollection<MonsterAction>), typeof(ActionControl), new PropertyMetadata(default));
 
-        public List<MonsterAction> Actions
+        public ObservableCollection<MonsterAction> Actions
         {
-            get { return (List<MonsterAction>)GetValue(ActionsProperty); }
+            get { return (ObservableCollection<MonsterAction>)GetValue(ActionsProperty); }
             set { SetValue(ActionsProperty, value); }
         }
 
