@@ -51,36 +51,42 @@ namespace EntityManager.ViewModels
         public void OpenMonsterPanel()
         {
             Button = SelectedButton.Monster;
+            Content.Save();
             Content = new MonstersViewModel();
         }
 
         public void OpenSpellPanel()
         {
             Button = SelectedButton.Spells;
+            Content.Save();
             Content = new SpellsViewModel();
         }
 
         public void OpenEquipmentPanel()
         {
             Button = SelectedButton.Equipment;
+            Content.Save();
             Content = new EquipmentViewModel();
         }
 
         public void OpenRacePanel()
         {
             Button = SelectedButton.Races;
+            Content.Save();
             Content = new RacesViewModel();
         }
 
         public void OpenClassPanel()
         {
             Button = SelectedButton.Classes;
+            Content.Save();
             Content = new ClassesViewModel();
         }
 
         public void OpenBackgroundPanel()
         {
             Button = SelectedButton.Backgrounds;
+            Content.Save();
             Content = new BackgroundsViewModel();
         }
     }

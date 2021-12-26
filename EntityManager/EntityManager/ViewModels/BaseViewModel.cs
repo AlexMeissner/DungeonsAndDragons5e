@@ -13,5 +13,9 @@ namespace EntityManager.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
+
+        public virtual void Save()
+        {
+        }
     }
 }

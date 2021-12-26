@@ -2,7 +2,7 @@
 
 namespace EntityManager.Pages
 {
-    public partial class RacesPage : UserControl
+    public partial class RacesPage : Page
     {
         public RacesPage()
         {

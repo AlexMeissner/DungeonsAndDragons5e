@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="Dungeons and Dragons 5e Entity Manager"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        Closing="OnClosing"
         Width="800"
         Height="600">
     <Grid>
@@ -44,6 +45,6 @@
             <Grid Grid.Row="1" Grid.Column="5" Background="{Binding ViewModel.BackgroundsColor}"/>
         </Grid>
 
-        <UserControl Grid.Row="1" Content="{Binding ViewModel.Content}" Margin="5"/>
+        <Frame Grid.Row="1" NavigationUIVisibility="Hidden" Navigating="Frame_Navigating" Content="{Binding ViewModel.Content}" Margin="5"/>
     </Grid>
 </Window>

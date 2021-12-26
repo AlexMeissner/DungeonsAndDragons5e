@@ -1,14 +1,17 @@
-﻿using System.Windows.Input;
+﻿using System.Linq;
+using System.Windows;
+using System.Windows.Input;
 using System.Windows.Controls;
+using System.Collections.ObjectModel;
 using EntityManager.Windows;
 using EntityManager.Controls;
 using EntityManager.ViewModels;
 
 namespace EntityManager.Pages
 {
-    public partial class MonsterPage : UserControl
+    public partial class MonsterPage : Page
     {
-        public MonstersViewModel ViewModel { get; set; } = new MonstersViewModel();
+        public MonstersViewModel ViewModel => DataContext as MonstersViewModel ?? new();
 
         public MonsterPage()
         {
@@ -26,18 +29,25 @@ namespace EntityManager.Pages
                 {
                     int index = ViewModel.Monsters.IndexOf(monster);
                     ViewModel.Monsters[index] = window.Monster;
+                    SortMonsters();
                 }
             }
         }
 
-        private void OnAddMonster(object sender, System.Windows.RoutedEventArgs e)
+        private void OnAddMonster(object sender, RoutedEventArgs e)
         {
             MonsterCreationWindow window = new();
 
             if (window.ShowDialog() == true && window.Monster != null)
             {
                 ViewModel.Monsters.Add(window.Monster);
+                SortMonsters();
             }
+        }
+
+        private void SortMonsters()
+        {
+            ViewModel.Monsters = new ObservableCollection<Monster>(ViewModel.Monsters.OrderBy(x => x.Name));
         }
     }
 }

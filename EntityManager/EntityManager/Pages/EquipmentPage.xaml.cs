@@ -2,7 +2,7 @@
 
 namespace EntityManager.Pages
 {
-    public partial class EquipmentPage : UserControl
+    public partial class EquipmentPage : Page
     {
         public EquipmentPage()
         {

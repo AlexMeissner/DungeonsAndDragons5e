@@ -2,7 +2,7 @@
 
 namespace EntityManager.Pages
 {
-    public partial class BackgroundsPage : UserControl
+    public partial class BackgroundsPage : Page
     {
         public BackgroundsPage()
         {

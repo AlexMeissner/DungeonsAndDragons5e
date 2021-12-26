@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="EntityManager.Pages.RacesPage"
+﻿<Page x:Class="EntityManager.Pages.RacesPage"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -9,4 +9,4 @@
     <Grid>
         <TextBlock Width="100" Height="100" Text="Races"/>
     </Grid>
-</UserControl>
+</Page>

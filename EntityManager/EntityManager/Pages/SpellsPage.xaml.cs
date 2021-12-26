@@ -2,7 +2,7 @@
 
 namespace EntityManager.Pages
 {
-    public partial class SpellsPage : UserControl
+    public partial class SpellsPage : Page
     {
         public SpellsPage()
         {
