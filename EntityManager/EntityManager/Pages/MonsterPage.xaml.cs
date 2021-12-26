@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Controls;
@@ -48,6 +49,20 @@ namespace EntityManager.Pages
         private void SortMonsters()
         {
             ViewModel.Monsters = new ObservableCollection<Monster>(ViewModel.Monsters.OrderBy(x => x.Name));
+        }
+
+        private void OnDelete(object sender, EventArgs e)
+        {
+            if (sender is MonsterCardControl control)
+            {
+                Monster monster = (Monster)control.DataContext;
+                var result = MessageBox.Show(string.Format("Soll '{0}' wirklich gelöscht werden?", monster.Name), "Eintrag löschen", MessageBoxButton.YesNo);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    ViewModel.Monsters.Remove(monster);
+                }
+            }
         }
     }
 }

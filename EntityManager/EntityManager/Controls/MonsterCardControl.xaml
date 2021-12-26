@@ -18,7 +18,14 @@
         </Border.Background>
 
         <StackPanel Orientation="Vertical">
-            <TextBlock FontWeight="Bold" FontSize="15" Text="{Binding ElementName=MonsterCardCtrl, Path=Monster.Name}"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" FontWeight="Bold" FontSize="15" Text="{Binding ElementName=MonsterCardCtrl, Path=Monster.Name}"/>
+                <Button Grid.Column="1" Background="Transparent" Foreground="Red" FontWeight="Bold" Content="X" Click="OnDelete"/>
+            </Grid>
             <Border Margin="2" BorderThickness="1" BorderBrush="Black"/>
             <Grid>
                 <Grid.RowDefinitions>

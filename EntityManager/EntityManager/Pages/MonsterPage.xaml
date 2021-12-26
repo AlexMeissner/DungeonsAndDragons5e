@@ -46,7 +46,7 @@
                             </Trigger>
                         </DataTemplate.Triggers>
 
-                        <controls:MonsterCardControl Monster="{Binding .}" Width="310" Padding="5" MouseDown="OnEditMonster"/>
+                        <controls:MonsterCardControl Monster="{Binding .}" Width="310" Padding="5" MouseDown="OnEditMonster" Delete="OnDelete"/>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
