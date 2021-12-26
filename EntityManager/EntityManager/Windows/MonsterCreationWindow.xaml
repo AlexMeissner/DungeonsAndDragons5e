@@ -9,6 +9,7 @@
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
         mc:Ignorable="d"
         Title="Monster Creation Window"
+        WindowState="Maximized"
         Width="1000"
         Height="600">
     <Window.Resources>
