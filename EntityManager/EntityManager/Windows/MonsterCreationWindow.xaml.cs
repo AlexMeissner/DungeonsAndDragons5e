@@ -2,6 +2,7 @@
 using System.IO;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Controls;
 using System.Text.RegularExpressions;
 using Microsoft.Win32;
 using EntityManager.ViewModels;
@@ -28,11 +29,20 @@ namespace EntityManager.Windows
             InitializeComponent();
         }
 
-        private static readonly Regex NumberRegex = new("[^0-9]+");
+        private static readonly Regex NumberRegex = new(@"[^0-9]+");
+        private static readonly Regex DoubleRegex = new(@"^[0-9]+(.[0-9]*)?$");
 
         private void NumberValidation(object sender, TextCompositionEventArgs e)
         {
             e.Handled = NumberRegex.IsMatch(e.Text);
+        }
+
+        private void DoubleValidation(object sender, TextCompositionEventArgs e)
+        {
+            if (sender is TextBox textBox)
+            {
+                e.Handled = !DoubleRegex.IsMatch(textBox.Text.Insert(textBox.CaretIndex, e.Text));
+            }
         }
 
         private void OnSave(object sender, RoutedEventArgs e)

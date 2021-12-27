@@ -146,7 +146,7 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Grid.Column="0" Text="Herausforderung" FontWeight="Bold"/>
-                    <TextBox Grid.Column="1" PreviewTextInput="NumberValidation" Text="{Binding Monster.Difficulty.ChallengeRating}"/>
+                    <TextBox Grid.Column="1" PreviewTextInput="DoubleValidation" Text="{Binding Monster.Difficulty.ChallengeRating}"/>
                 </Grid>
                 <Grid Margin="1">
                     <Grid.ColumnDefinitions>
