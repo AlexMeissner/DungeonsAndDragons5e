@@ -31,10 +31,10 @@
                             <TextBox Grid.Row="2" Grid.Column="1" Margin="0 1 0 1" HorizontalAlignment="Stretch" Text="{Binding Description}"/>
                         </Grid>
                         <Border Height="1" Margin="2" BorderThickness="1" BorderBrush="Black" />
-                    </StackPanel>                    
+                    </StackPanel>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
-        <Button Margin="1" Background="Transparent" Content="+" Click="OnAddEntry"/>
+        <Button Background="Transparent" Content="+" Click="OnAddEntry"/>
     </StackPanel>
 </UserControl>

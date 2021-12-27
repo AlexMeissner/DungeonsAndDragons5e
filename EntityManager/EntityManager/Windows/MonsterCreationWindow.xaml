@@ -164,13 +164,14 @@
                     <TextBlock Grid.Column="0" Text="Aktionen" FontWeight="Bold"/>
                     <controls:ActionListEditControl Grid.Column="1" Actions="{Binding Monster.Actions}"/>
                 </Grid>
-                <TextBlock Grid.Column="0" Margin="1" Text="Bild" FontWeight="Bold"/>
-                <Border Margin="1">
-                    <Border.Background>
-                        <ImageBrush ImageSource="{Binding Monster.Image, Converter={StaticResource StringToImageConverter}}" Stretch="UniformToFill"/>
-                    </Border.Background>
-                    <Button Height="100" Background="Transparent"/>
-                </Border>
+                <Grid Margin="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Margin="1" Text="Bild" FontWeight="Bold"/>
+                    <Button Grid.Column="1" Background="Transparent" Content="Ändern" Click="OnChangeImage"/>
+                </Grid>
             </StackPanel>
         </ScrollViewer>
 
