@@ -28,6 +28,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
             <Button Grid.Row="0" Grid.Column="0" FontWeight="Bold" BorderThickness="0" Background="White" Command="{Binding ViewModel.MonsterCommand}" Content="Monster"/>
@@ -36,6 +37,7 @@
             <Button Grid.Row="0" Grid.Column="3" FontWeight="Bold" BorderThickness="0" Background="White" Command="{Binding ViewModel.RaceCommand}" Content="Völker"/>
             <Button Grid.Row="0" Grid.Column="4" FontWeight="Bold" BorderThickness="0" Background="White" Command="{Binding ViewModel.ClassesCommand}" Content="Klassen"/>
             <Button Grid.Row="0" Grid.Column="5" FontWeight="Bold" BorderThickness="0" Background="White" Command="{Binding ViewModel.BackgroundsCommand}" Content="Hintergründe"/>
+            <Button Grid.Row="0" Grid.Column="6" FontWeight="Bold" BorderThickness="0" Background="White" Command="{Binding ViewModel.ConditionCommand}" Content="Zustände"/>
 
             <Grid Grid.Row="1" Grid.Column="0" Background="{Binding ViewModel.MonsterColor}"/>
             <Grid Grid.Row="1" Grid.Column="1" Background="{Binding ViewModel.SpellColor}"/>
@@ -43,6 +45,7 @@
             <Grid Grid.Row="1" Grid.Column="3" Background="{Binding ViewModel.RaceColor}"/>
             <Grid Grid.Row="1" Grid.Column="4" Background="{Binding ViewModel.ClassesColor}"/>
             <Grid Grid.Row="1" Grid.Column="5" Background="{Binding ViewModel.BackgroundsColor}"/>
+            <Grid Grid.Row="1" Grid.Column="6" Background="{Binding ViewModel.ConditionColor}"/>
         </Grid>
 
         <Frame Grid.Row="1" NavigationUIVisibility="Hidden" Navigating="Frame_Navigating" Content="{Binding ViewModel.Content}" Margin="5"/>

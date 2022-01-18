@@ -12,7 +12,8 @@ namespace EntityManager.ViewModels
             Equipment,
             Races,
             Classes,
-            Backgrounds
+            Backgrounds,
+            Condition
         }
 
         private SolidColorBrush ButtonColor(SelectedButton button)
@@ -26,6 +27,7 @@ namespace EntityManager.ViewModels
         public SolidColorBrush RaceColor => ButtonColor(SelectedButton.Races);
         public SolidColorBrush ClassesColor => ButtonColor(SelectedButton.Classes);
         public SolidColorBrush BackgroundsColor => ButtonColor(SelectedButton.Backgrounds);
+        public SolidColorBrush ConditionColor => ButtonColor(SelectedButton.Condition);
 
         public SelectedButton Button { get; set; } = SelectedButton.Monster;
 
@@ -35,6 +37,7 @@ namespace EntityManager.ViewModels
         public ICommand RaceCommand { get; set; }
         public ICommand ClassesCommand { get; set; }
         public ICommand BackgroundsCommand { get; set; }
+        public ICommand ConditionCommand { get; set; }
 
         public BaseViewModel Content { get; set; } = new MonstersViewModel();
 
@@ -46,6 +49,7 @@ namespace EntityManager.ViewModels
             RaceCommand = new RelayCommand(OpenRacePanel);
             ClassesCommand = new RelayCommand(OpenClassPanel);
             BackgroundsCommand = new RelayCommand(OpenBackgroundPanel);
+            ConditionCommand = new RelayCommand(OpenConditionPanel);
         }
 
         public void OpenMonsterPanel()
@@ -88,6 +92,13 @@ namespace EntityManager.ViewModels
             Button = SelectedButton.Backgrounds;
             Content.Save();
             Content = new BackgroundsViewModel();
+        }
+
+        public void OpenConditionPanel()
+        {
+            Button = SelectedButton.Condition;
+            Content.Save();
+            Content = new ConditionsViewModel();
         }
     }
 }

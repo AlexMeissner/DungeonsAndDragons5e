@@ -1,0 +1,14 @@
+[
+  {
+    "GUID": "9e3a6c6f-d314-41d4-8cda-30d169d1ad5b",
+    "Name": "Blind",
+    "Effects": [
+      {
+        "Content": "Eine blinde Kreatur kann nicht sehen und scheitert automatisch bei allen Attributw\u00FCrfen, die Sicht erfordern."
+      },
+      {
+        "Content": "Angriffsw\u00FCrfe gegen die Kreaturen sind im Vorteil, die Kreatur ist bei ihren Angriffsw\u00FCrfen hingegen im Nachteil."
+      }
+    ]
+  }
+]

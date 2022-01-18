@@ -53,5 +53,10 @@ namespace EntityManager.Utility
         {
             return FindFilePathRecursive("background.json", Directory.GetCurrentDirectory());
         }
+
+        public static string GetConditionFilePath()
+        {
+            return FindFilePathRecursive("condition.json", Directory.GetCurrentDirectory());
+        }
     }
 }

@@ -21,4 +21,7 @@
     <DataTemplate DataType="{x:Type viewModels:BackgroundsViewModel}">
         <pages:BackgroundsPage/>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:ConditionsViewModel}">
+        <pages:ConditionPage/>
+    </DataTemplate>
 </ResourceDictionary>
