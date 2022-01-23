@@ -23,7 +23,7 @@
                         <TextBlock HorizontalAlignment="Right" FontStyle="Italic" Text="{Binding Type}"/>
                         <TextBlock Text=":" FontStyle="Italic" Visibility="{Binding Type, Converter={StaticResource NullVisibilityConverter}}"/>
                     </StackPanel>
-                    <TextBox IsReadOnly="True" Background="Transparent" BorderThickness="0" TextWrapping="Wrap" TextAlignment="Justify" HorizontalAlignment="Right" Text="{Binding Description}"/>
+                    <TextBlock Background="Transparent" TextWrapping="Wrap" TextAlignment="Justify" HorizontalAlignment="Right" Text="{Binding Description}"/>
                 </WrapPanel>
             </DataTemplate>
         </ItemsControl.ItemTemplate>

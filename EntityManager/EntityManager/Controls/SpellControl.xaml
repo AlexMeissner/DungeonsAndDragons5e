@@ -1,0 +1,57 @@
+﻿<UserControl x:Class="EntityManager.Controls.SpellControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EntityManager.Controls"
+             xmlns:converter="clr-namespace:EntityManager.Converter"
+             x:Name="SpellCtrl"
+             mc:Ignorable="d"
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <converter:BoolVisibilityConverter x:Key="BoolVisibilityConverter"/>
+    </UserControl.Resources>
+    <Border BorderThickness="2" BorderBrush="Black" Padding="5">
+        <StackPanel Orientation="Vertical">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="20"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0" FontSize="16" FontWeight="Bold" Text="{Binding ElementName=SpellCtrl, Path=Spell.Name}"/>
+                <Button Grid.Column="1" Background="Transparent" Foreground="Red" FontWeight="Bold" Content="X" Click="OnDelete"/>
+            </Grid>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Margin="0 0 4 0" FontStyle="Italic" Text="Zaubertrick:" Visibility="{Binding ElementName=SpellCtrl, Path=Spell.IsCantrip, Converter={StaticResource BoolVisibilityConverter}}"/>
+                <TextBlock FontStyle="Italic" Text="{Binding ElementName=SpellCtrl, Path=Spell.Type}"/>
+                <TextBlock Margin="4 0 0 0" FontStyle="Italic" Text="des" Visibility="{Binding ElementName=SpellCtrl, Path=Spell.IsSpell, Converter={StaticResource BoolVisibilityConverter}}"/>
+                <TextBlock Margin="4 0 0 0" FontStyle="Italic" Text="{Binding ElementName=SpellCtrl, Path=Spell.Level}" Visibility="{Binding ElementName=SpellCtrl, Path=Spell.IsSpell, Converter={StaticResource BoolVisibilityConverter}}"/>
+                <TextBlock FontStyle="Italic" Text=". Grades" Visibility="{Binding ElementName=SpellCtrl, Path=Spell.IsSpell, Converter={StaticResource BoolVisibilityConverter}}"/>
+                <TextBlock Margin="4 0 0 0" FontStyle="Italic" Text="(Ritual)" Visibility="{Binding ElementName=SpellCtrl, Path=Spell.IsRitual, Converter={StaticResource BoolVisibilityConverter}}"/>
+            </StackPanel>
+            <Grid Height="10"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontWeight="Bold" Text="Zeitaufwand:"/>
+                <TextBlock Margin="4 0 0 0" Text="{Binding ElementName=SpellCtrl, Path=Spell.CastingTime}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontWeight="Bold" Text="Reichweite:"/>
+                <TextBlock Margin="4 0 0 0" Text="{Binding ElementName=SpellCtrl, Path=Spell.Range}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontWeight="Bold" Text="Komponenten:"/>
+                <TextBlock Margin="4 0 0 0" Text="Verbal" Visibility="{Binding ElementName=SpellCtrl, Path=Spell.IsVerbal, Converter={StaticResource BoolVisibilityConverter}}"/>
+                <TextBlock Text="," Visibility="{Binding ElementName=SpellCtrl, Path=Spell.IsVerbal, Converter={StaticResource BoolVisibilityConverter}}"/>
+                <TextBlock Margin="4 0 0 0" Text="Gesten" Visibility="{Binding ElementName=SpellCtrl, Path=Spell.IsSomatic, Converter={StaticResource BoolVisibilityConverter}}"/>
+                <TextBlock Text="," Visibility="{Binding ElementName=SpellCtrl, Path=Spell.IsSomatic, Converter={StaticResource BoolVisibilityConverter}}"/>
+                <TextBlock Margin="4 0 0 0" Text="{Binding ElementName=SpellCtrl, Path=Spell.Material}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontWeight="Bold" Text="Wirkungsdauer:"/>
+                <TextBlock Margin="4 0 0 0" Text="{Binding ElementName=SpellCtrl, Path=Spell.Duration}"/>
+            </StackPanel>
+            <Grid Height="10"/>
+            <TextBlock TextWrapping="Wrap" Text="{Binding ElementName=SpellCtrl, Path=Spell.Description}"/>
+        </StackPanel>
+    </Border>
+</UserControl>
