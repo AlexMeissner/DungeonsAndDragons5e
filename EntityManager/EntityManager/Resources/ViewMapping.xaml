@@ -24,4 +24,7 @@
     <DataTemplate DataType="{x:Type viewModels:ConditionsViewModel}">
         <pages:ConditionPage/>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:TraitsViewModel}">
+        <pages:TraitsPage/>
+    </DataTemplate>
 </ResourceDictionary>
