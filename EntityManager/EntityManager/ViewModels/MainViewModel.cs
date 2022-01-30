@@ -15,6 +15,7 @@ namespace EntityManager.ViewModels
             Backgrounds,
             Condition,
             Traits,
+            Alignments,
         }
 
         private SolidColorBrush ButtonColor(SelectedButton button)
@@ -30,6 +31,7 @@ namespace EntityManager.ViewModels
         public SolidColorBrush BackgroundsColor => ButtonColor(SelectedButton.Backgrounds);
         public SolidColorBrush ConditionColor => ButtonColor(SelectedButton.Condition);
         public SolidColorBrush TraitColor => ButtonColor(SelectedButton.Traits);
+        public SolidColorBrush AlignmentColor => ButtonColor(SelectedButton.Alignments);
 
         public SelectedButton Button { get; set; } = SelectedButton.Monster;
 
@@ -41,6 +43,7 @@ namespace EntityManager.ViewModels
         public ICommand BackgroundsCommand { get; set; }
         public ICommand ConditionCommand { get; set; }
         public ICommand TraitCommand { get; set; }
+        public ICommand AlignmentCommand { get; set; }
 
         public BaseViewModel Content { get; set; } = new MonstersViewModel();
 
@@ -54,6 +57,7 @@ namespace EntityManager.ViewModels
             BackgroundsCommand = new RelayCommand(OpenBackgroundPanel);
             ConditionCommand = new RelayCommand(OpenConditionPanel);
             TraitCommand = new RelayCommand(OpenTraitPanel);
+            AlignmentCommand = new RelayCommand(OpenAlignmentPanel);
         }
 
         public void OpenMonsterPanel()
@@ -110,6 +114,13 @@ namespace EntityManager.ViewModels
             Button = SelectedButton.Traits;
             Content.Save();
             Content = new TraitsViewModel();
+        }
+
+        public void OpenAlignmentPanel()
+        {
+            Button = SelectedButton.Alignments;
+            Content.Save();
+            Content = new AlignmentsViewModel();
         }
     }
 }

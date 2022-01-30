@@ -27,4 +27,7 @@
     <DataTemplate DataType="{x:Type viewModels:TraitsViewModel}">
         <pages:TraitsPage/>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type viewModels:AlignmentsViewModel}">
+        <pages:AlignmentsPage/>
+    </DataTemplate>
 </ResourceDictionary>
