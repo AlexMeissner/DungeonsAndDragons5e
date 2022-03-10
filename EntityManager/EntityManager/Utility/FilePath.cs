@@ -26,12 +26,12 @@ namespace EntityManager.Utility
 
         public static string GetMonsterFilePath()
         {
-            return FindFilePathRecursive("monster.json", Directory.GetCurrentDirectory());
+            return FindFilePathRecursive("monsters.json", Directory.GetCurrentDirectory());
         }
 
         public static string GetSpellFilePath()
         {
-            return FindFilePathRecursive("spell.json", Directory.GetCurrentDirectory());
+            return FindFilePathRecursive("spells.json", Directory.GetCurrentDirectory());
         }
 
         public static string GetEquipmentFilePath()
@@ -41,22 +41,22 @@ namespace EntityManager.Utility
 
         public static string GetRaceFilePath()
         {
-            return FindFilePathRecursive("race.json", Directory.GetCurrentDirectory());
+            return FindFilePathRecursive("races.json", Directory.GetCurrentDirectory());
         }
 
         public static string GetClassFilePath()
         {
-            return FindFilePathRecursive("class.json", Directory.GetCurrentDirectory());
+            return FindFilePathRecursive("classes.json", Directory.GetCurrentDirectory());
         }
 
         public static string GetBackgroundFilePath()
         {
-            return FindFilePathRecursive("background.json", Directory.GetCurrentDirectory());
+            return FindFilePathRecursive("backgrounds.json", Directory.GetCurrentDirectory());
         }
 
         public static string GetConditionFilePath()
         {
-            return FindFilePathRecursive("condition.json", Directory.GetCurrentDirectory());
+            return FindFilePathRecursive("conditions.json", Directory.GetCurrentDirectory());
         }
 
         public static string GetTraitsFilePath()
