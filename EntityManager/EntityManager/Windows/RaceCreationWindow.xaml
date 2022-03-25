@@ -122,8 +122,32 @@
                     <TextBlock Grid.Column="0" Text="Größenkategorie" FontWeight="Bold"/>
                     <TextBox Grid.Column="1" Text="{Binding Race.SizeCategory}"/>
                 </Grid>
-                <!-- Gesinnung -->
-                <!-- Merkmale -->
+                <Grid Margin="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Gesinnung" FontWeight="Bold"/>
+                    <ComboBox Grid.Column="1">
+                        <ComboBoxItem>Test 1</ComboBoxItem>
+                        <ComboBoxItem>Test 2</ComboBoxItem>
+                        <ComboBoxItem>Test 3</ComboBoxItem>
+                        <ComboBoxItem>Test 4</ComboBoxItem>
+                        <ComboBoxItem>Test 5</ComboBoxItem>
+                        <ComboBoxItem>Test 6</ComboBoxItem>
+                        <ComboBoxItem>Test 7</ComboBoxItem>
+                        <ComboBoxItem>Test 8</ComboBoxItem>
+                    </ComboBox>
+                    <!-- TODO -->
+                </Grid>
+                <Grid Margin="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" Text="Merkmale" FontWeight="Bold"/>
+                    <!-- TODO -->
+                </Grid>
                 <Grid Margin="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
